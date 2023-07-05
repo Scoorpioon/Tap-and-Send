@@ -1,13 +1,17 @@
 import React, {useRef, useState, useEffect} from 'react';
 import Mensagem from '../message';
 import '../../styles/messageContainer.css';
-import Funcoes from '../../global/functions';
+import dadosMensagem from '../../global/data';
 
 const CaixaMensagens = () => {
     const textoDigitado = useRef();
     const [mensagem, setarMensagem] = useState();
     const data = new Date;
-    const horaAtual = `${data.getHours()}:${data.getMinutes()}`;
+    var horaAtual = `${data.getHours()}:${data.getMinutes()}`;
+
+    if(horaAtual[4] == undefined) {
+       horaAtual = horaAtual.split().splice(3, 0, '0');
+    };
     
     const enviarMensagem = () => {
         const texto = textoDigitado.current.value;
@@ -30,18 +34,7 @@ const CaixaMensagens = () => {
         }]);
     }, [mensagem]);
 
-    const [mensagens, enviarTexto] = useState([
-        {
-            textoDaMensagem: 'Eu sou a sua mensagem!',
-            tipo: 'author',
-            hora: horaAtual
-        },
-        {
-            textoDaMensagem: 'Eu sou a mensagem do seu amigo!',
-            tipo: 'receiver',
-            hora: horaAtual
-        }
-    ]);
+    const [mensagens, enviarTexto] = useState(dadosMensagem.mensagens);
 
     return(
         <>
