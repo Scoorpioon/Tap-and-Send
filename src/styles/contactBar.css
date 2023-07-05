@@ -2,18 +2,72 @@
     text-align: center;
     width: 30%;
     border-right: 1px solid rgb(189, 189, 189);
+    padding: 0 10px;
 }
 
 ._contactBar h1 {
     opacity: 0.7;
 }
 
-.contact {
+._contato {
     display: flex;
+    position: relative;
     justify-content: center;
     align-items: center;
     margin: 5px 0;
     height: 62px;
+    padding: 2px;
 
-    border: 1px solid gray;
+    border-top: 1px solid gray;
+    border-bottom: 1px solid gray;
+
+    cursor: pointer;
+}
+
+._contato:hover {
+    background-color: rgb(241, 241, 241);
+
+}
+
+._info-contato {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 22px;
+    width: 100%;
+    height: 100%;
+}
+
+._editar-contato {
+    position: absolute;
+    right: 5px;
+    height: 30px;
+    width: 32px;
+    border-radius: 50px;
+    box-shadow: 0 0 6px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Edição de dados do contato */
+.textos-contato {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+.nome-contato {
+    font-weight: bold;
+    height: 22px;
+}
+
+.mensagem-contato {
+    opacity: .9;
+    height: 24px;
+    font-size: .9em;
+}
+
+.foto-contato {
+    border-radius: 50px;
+    width: 42px;
+    height: 40px;
+    border: 1px solid black;
 }
