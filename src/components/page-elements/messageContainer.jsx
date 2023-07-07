@@ -2,16 +2,11 @@ import React, {useRef, useState, useEffect} from 'react';
 import Mensagem from '../message';
 import '../../styles/messageContainer.css';
 import dadosMensagem from '../../global/data';
+import Variaveis from '../../global/variables';
 
-const CaixaMensagens = () => {
+const CaixaMensagens = ({idContato}) => {
     const textoDigitado = useRef();
-    const [mensagem, setarMensagem] = useState();
-    const data = new Date;
-    var horaAtual = `${data.getHours()}:${data.getMinutes()}`;
-
-    if(horaAtual[4] == undefined) {
-       horaAtual = horaAtual.split().splice(3, 0, '0');
-    };
+    const [mensagem, setarMensagem] = useState(); // Mensagem a ser enviada para a caixa de mensagens
     
     const enviarMensagem = () => {
         const texto = textoDigitado.current.value;
@@ -23,18 +18,18 @@ const CaixaMensagens = () => {
             setarMensagem(texto);
         };
 
-        textoDigitado.current.value = '';
+        textoDigitado.current.value = '';        
     };
 
     useEffect(() => {
         enviarTexto((mensagensAnteriores) => [...mensagensAnteriores, {
             textoDaMensagem: mensagem,
             tipo: 'author',
-            hora: horaAtual
+            hora: Variaveis.horaAtual
         }]);
-    }, [mensagem]);
+    }, [mensagem]); // useEffect necessário, pois sem ele a mensagem não é atualizada instantaneamente
 
-    const [mensagens, enviarTexto] = useState(dadosMensagem.mensagens);
+    const [mensagens, enviarTexto] = useState(dadosMensagem.mensagens); // Todas as mensagens armazenadas que já foram enviadas
 
     return(
         <>
