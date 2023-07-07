@@ -5,9 +5,10 @@
     justify-content: center;
     align-items: center;
     height: 100%;
+    overflow-y: scroll;
     width: 70%;
 
-    background-color: aliceblue;
+    background-color: rgb(243, 243, 243);
 }
 
 .messages {
@@ -61,26 +62,28 @@
     justify-content: start;
 }
 
-
-
 .barraDeEnvio {
     display: flex;
     align-items: center;
     gap: 12px;
     width: 100%;
     height: 12%;
+    border-top: 2px solid rgb(105, 160, 208);;
+    /*  border-top-left-radius: 6px; */
+    /* border-top-right-radius: 6px; */
 
-    background-color: rgb(215, 236, 255);
+    background-color: rgb(223, 240, 255);
 }
 
 .barraDeEnvio input[type="text"] {
-    border-radius: 16px;
-    border: 1px solid gray;
+    border-radius: 14px;
+    border: 1px solid rgb(207, 203, 255);
     width: 92%;
     margin-left: 10px;
     padding: 10px;
     height: 40px;
     color: rgb(64, 64, 64);
+    outline: none;
 }
 
 .barraDeEnvio button {
