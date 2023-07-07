@@ -71,3 +71,21 @@
     height: 40px;
     border: 1px solid black;
 }
+
+.temporaryBottomContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+}
+
+.temporaryBottomContainer span {
+    opacity: 0.6;
+}
+
+.temporaryBottomContainer button {
+    width: 80%;
+    background: none;
+    color: rgb(0, 0, 255);
+    border: 2px solid rgb(132, 132, 255);
+}
