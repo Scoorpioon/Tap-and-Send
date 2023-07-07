@@ -1,23 +1,39 @@
-const data = new Date;
-let minutos = data.getMinutes();
-const horaAtual = `${data.getHours()}:${minutos}`;
+import Variaveis from "./variables";
 
 class dadosMensagem{
-    static data = new Date;
-    static horaAtual = `${this.data.getHours()}:${this.data.getMinutes()}`;
-
     static mensagens = [
         {
             textoDaMensagem: 'Eu sou a sua mensagem!',
             tipo: 'author',
-            hora: this.horaAtual
+            hora: Variaveis.horaAtual
         },
         {
             textoDaMensagem: 'Eu sou a mensagem do seu amigo!',
             tipo: 'receiver',
-            hora: this.horaAtual
+            hora: Variaveis.horaAtual
         }
-    ];
+    ]; /* =======================CÓDIGO ANTERIOR DE CAIXA DE MENSAGEM ÚNICA======================= */
+
+   static contatos = {
+    Contato0: [
+    {
+        mensagem: 'Bom dia! Tudo bem com você?',
+        autor: 'receiver',
+        data: Variaveis.horaAtual
+    },
+    {
+        mensagem: 'Estamos conversando através de uma aplicação web em React desenvolvida por Gabriel Alexandre!',
+        autor: 'receiver',
+        data: Variaveis.horaAtual
+    },
+    {
+        mensagem: 'Que incrível!',
+        autor: 'author',
+        data: Variaveis.horaAtual
+    }
+],
+    Contato1: [{}]
+   }
 };
 
 export default dadosMensagem;
