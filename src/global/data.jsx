@@ -32,7 +32,21 @@ class dadosMensagem{
         data: Variaveis.horaAtual
     }
 ],
-    Contato1: [{}]
+    Contato1: [{
+        mensagem: 'Este é um exemplo de alteração de conversas.',
+        autor: 'receiver',
+        data: Variaveis.horaAtual
+    },
+    {
+        mensagem: 'Você pode criar um novo contato e uma nova caixa de conversas será criada!',
+        autor: 'receiver',
+        data: Variaveis.horaAtual
+    },
+    {
+        mensagem: 'Entendi...! Obrigado pela informação, meu amigo.',
+        autor: 'author',
+        data: Variaveis.horaAtual
+    }]
    }
 };
 
