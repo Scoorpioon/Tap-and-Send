@@ -2,8 +2,12 @@ import React from 'react';
 import '../../styles/contactBar.css';
 import Contato from '../contact';
 import {useState} from 'react';
+import dadosMensagem from '../../global/data';
+import Variaveis from '../../global/variables';
 
 const BarraContatos = () => {
+    const contatosArmazenados = dadosMensagem.contatos;
+
     const [contatos, inserirContato] = useState([{
         id: 0,
         nome: 'Matheus Godoy',
@@ -23,6 +27,9 @@ const BarraContatos = () => {
             nome: 'Teste',
             mensagem: 'Como vou fazer isso?'
         }]);
+
+        contatosArmazenados['Contato' + ids] = [];
+        console.log(contatosArmazenados)
 
         incrementarId(ids => ids + 1);
       };
