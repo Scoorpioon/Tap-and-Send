@@ -1,35 +1,35 @@
-import React, {useRef, useState, useEffect} from 'react';
+import React, {useRef, useState, useEffect, useReducer} from 'react';
 import Mensagem from '../message';
 import '../../styles/messageContainer.css';
 import dadosMensagem from '../../global/data';
 import Variaveis from '../../global/variables';
+import BarraDeEnvio from './messageBar';
 
-const CaixaMensagens = ({idContato}) => {
-    const textoDigitado = useRef();
+const CaixaMensagens = ({}) => {
     const [mensagem, setarMensagem] = useState(); // Mensagem a ser enviada para a caixa de mensagens
-    
-    const enviarMensagem = () => {
-        const texto = textoDigitado.current.value;
-        
-        if(!texto) {
-            console.log('Mensagem vazia não vai!!');
-            return false;
-        } else {
-            setarMensagem(texto);
-        };
+    let idAtual = Variaveis.idAtual;
+    let contatoAtual = dadosMensagem.contatos[idAtual];
 
-        textoDigitado.current.value = '';        
-    };
+    const receberMensagem = (textoMensagem) => {
+        setarMensagem(textoMensagem)
+    }
 
     useEffect(() => {
         enviarTexto((mensagensAnteriores) => [...mensagensAnteriores, {
             textoDaMensagem: mensagem,
-            tipo: 'author',
-            hora: Variaveis.horaAtual
+            autor: 'author',
+            horario: Variaveis.horaAtual
         }]);
+
+        contatoAtual = mensagens;
+
     }, [mensagem]); // useEffect necessário, pois sem ele a mensagem não é atualizada instantaneamente
 
-    const [mensagens, enviarTexto] = useState(dadosMensagem.mensagens); // Todas as mensagens armazenadas que já foram enviadas
+    const [mensagens, enviarTexto] = useState(contatoAtual); // Todas as mensagens armazenadas que já foram enviadas
+
+    useEffect(() => {
+        enviarTexto(contatoAtual);
+    }, [contatoAtual]);
 
     return(
         <>
@@ -39,19 +39,20 @@ const CaixaMensagens = ({idContato}) => {
                 </div>
 
                 <div className="messages">
-                    {mensagens.map((msg) => {return <Mensagem key={Math.random()} texto={msg.textoDaMensagem} tipo={msg.tipo} hora={msg.hora} />})}
+                    {mensagens.map((msg) => {return <Mensagem key={Math.random()} texto={msg.textoDaMensagem} tipo={msg.autor} hora={msg.horario} />})}
                     {/* <Mensagem texto={mensagem} tipo="author" />
                     <Mensagem texto="Mensagem da outra pessoa!" tipo="receiver" /> */}
                 </div>
 
-                <div className="barraDeEnvio">
+               {/*  <div className="barraDeEnvio">
                     <input type="text" ref={textoDigitado} placeholder="Mensagem a ser enviada..." onKeyDown={(evento) => {
                         if(evento.key === 'Enter') {
                             enviarMensagem();
                         };
                     }} />
                     <button onClick={enviarMensagem}>{'>'}</button>
-                </div>
+                </div> */}
+                <BarraDeEnvio onClick={receberMensagem} />
             </div>
         </>
     );
