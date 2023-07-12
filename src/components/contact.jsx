@@ -1,10 +1,17 @@
 import React, {useRef, useState, lazy} from 'react';
 import '../styles/contactBar.css';
 import dadosMensagem from '../global/data';
+import Variaveis from '../global/variables';
 
 const Contato = ({nome, texto, id}) => {
+    const [contatoMudado, mudarContato] = useState(false);
+
     const selecionarContato = () => {
         console.log('ID do contato selecionado: ' + id)
+        Variaveis.idAtual = `Contato${id}`;
+
+        mudarContato(true);
+        Variaveis.contatoAlterado = contatoMudado;
     }
 
     return(
