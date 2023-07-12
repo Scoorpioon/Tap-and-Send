@@ -40,18 +40,7 @@ const CaixaMensagens = ({}) => {
 
                 <div className="messages">
                     {mensagens.map((msg) => {return <Mensagem key={Math.random()} texto={msg.textoDaMensagem} tipo={msg.autor} hora={msg.horario} />})}
-                    {/* <Mensagem texto={mensagem} tipo="author" />
-                    <Mensagem texto="Mensagem da outra pessoa!" tipo="receiver" /> */}
                 </div>
-
-               {/*  <div className="barraDeEnvio">
-                    <input type="text" ref={textoDigitado} placeholder="Mensagem a ser enviada..." onKeyDown={(evento) => {
-                        if(evento.key === 'Enter') {
-                            enviarMensagem();
-                        };
-                    }} />
-                    <button onClick={enviarMensagem}>{'>'}</button>
-                </div> */}
                 <BarraDeEnvio onClick={receberMensagem} />
             </div>
         </>
