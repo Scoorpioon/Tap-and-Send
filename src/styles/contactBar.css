@@ -84,8 +84,13 @@
 }
 
 .temporaryBottomContainer button {
+    transition: 0.2s;
     width: 80%;
     background: none;
     color: rgb(0, 0, 255);
     border: 2px solid rgb(132, 132, 255);
+}
+
+.temporaryBottomContainer button:hover {
+    border-radius: 8px;
 }
