@@ -1,4 +1,6 @@
 class Variaveis{
+    static idAtual = 'Contato0';
+    
     static verificarHorario = (horario) => {
         horario = horario.toString();
         horario = horario.split('');
