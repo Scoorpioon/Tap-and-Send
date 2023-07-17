@@ -2,6 +2,11 @@
 
 This is a message app like Facebook or Whatsapp, which the user will be able to login (still in progress), send, receive, edit or delete messages and add a contact.
 
+## Technologies used
+- ReactJS
+- .NET Framework
+- Bootstrap
+
 ## Available Scripts
 
 In the project directory, you can run:
