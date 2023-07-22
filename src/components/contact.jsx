@@ -1,21 +1,20 @@
-import React, {useRef, useState, lazy} from 'react';
+import React, {useEffect, useContext} from 'react';
+import {DadosDeMensagens} from '../global/mainData';
 import '../styles/contactBar.css';
-import dadosMensagem from '../global/data';
-import Variaveis from '../global/variables';
 
 const Contato = ({nome, texto, id}) => {
-    const [contatoMudado, mudarContato] = useState(false);
+    const {mensagensAPI} = useContext(DadosDeMensagens);
 
     const selecionarContato = () => {
-        console.log('ID do contato selecionado: ' + id)
-        Variaveis.idAtual = `Contato${id}`;
+        console.log('ID do contato selecionado: ' + id);
+    };
 
-        mudarContato(true);
-        Variaveis.contatoAlterado = contatoMudado;
-    }
+    useEffect(() => {
+        console.log('API direto dos contatos: ', mensagensAPI)
+    }, [mensagensAPI]);
 
     return(
-        <div className="_contato" onClick={selecionarContato}>
+        <div className={`_contato`} onClick={selecionarContato}>
             <div className="_info-contato">
                 <span className="foto-contato">Foto</span>
                 <div className="textos-contato">
