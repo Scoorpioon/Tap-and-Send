@@ -1,48 +1,46 @@
-import React from 'react';
-import '../../styles/contactBar.css';
+import React, {useState, useContext, useEffect} from 'react';
+import { DadosDeMensagens } from '../../global/mainData'
+import {DadosDoUsuario} from '../../global/userData'
+import CaixaPerfil from './userSection';
 import Contato from '../contact';
-import {useState} from 'react';
-import dadosMensagem from '../../global/data';
-import Variaveis from '../../global/variables';
+import Popup from '../generalPopup';
+import '../../styles/contactBar.css';
 
 const BarraContatos = () => {
-    const contatosArmazenados = dadosMensagem.contatos;
+    const {contatos, setarContato} = useContext(DadosDeMensagens);
+    const {situacaoPopup, ativarPopup} = useContext(DadosDoUsuario);
+    const [ids, incrementarId] = useState(2);
+    const {dadosUsuario} = useContext(DadosDoUsuario);
 
-    const [contatos, inserirContato] = useState([{
-        id: 0,
-        nome: 'Matheus Godoy',
-        mensagem: 'Sou uma mensagem de teste...',
-        /* foto: '***' */
-      }, {
-        id: 1,
-        nome: 'Alef Kwanzas',
-        mensagem: 'tomale'
+    useEffect(() => {
+      console.log('Contatos: ', contatos);
+      console.log(dadosUsuario)
+    })
+
+    const adicionarContato = () => {
+      setarContato((contatosAnt) => [...contatosAnt, {
+        id: ids,
+        nome: 'Teste',
+        mensagem: 'Como vou fazer isso?'
       }]);
 
-    const [ids, incrementarId] = useState(2);
+      incrementarId(ids => ids + 1);
+    };
 
-      const adicionarContato = () => {
-        inserirContato([...contatos, {
-            id: ids,
-            nome: 'Teste',
-            mensagem: 'Como vou fazer isso?'
-        }]);
-
-        contatosArmazenados['Contato' + ids] = [];
-        console.log(contatosArmazenados)
-
-        incrementarId(ids => ids + 1);
-      };
+    const popupContato = () => {
+      console.log(situacaoPopup)
+      return situacaoPopup ? ativarPopup(false) : ativarPopup(true);
+    }
 
     return(
-        <div className="_contactBar">
-            <h1>Contatos</h1>
-            {contatos.map((contato) => {return <Contato key={contato.id} nome={contato.nome} texto={contato.mensagem} id={contato.id} />})}
+        <aside className="_contactBar">
+            <CaixaPerfil nomeUsuario={dadosUsuario.nome} />
+            {contatos.map((contato) => {return <Contato key={contato.id} nome={contato.nome} texto={contato.mensagem} id={contato.id} style={{backgroundColor: 'red'}} />})}
             <div className="temporaryBottomContainer">
-              <button onClick={adicionarContato}>Adicionar contato</button>
+              <button onClick={popupContato}>Adicionar contato</button>
               <span className="trademark">&copy; Desenvolvido por Gabriel A.</span>
             </div>
-        </div>
+        </aside>
     );
 };
 

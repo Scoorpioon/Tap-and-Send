@@ -1,8 +1,7 @@
 import React, {useRef, useState, useEffect, useReducer} from 'react';
-import Mensagem from '../message';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faImage, faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 import '../../styles/messageBar.css';
-import dadosMensagem from '../../global/data';
-import Variaveis from '../../global/variables';
 
 const BarraDeEnvio = (props) => {
     const textoDigitado = useRef();
@@ -37,12 +36,14 @@ const BarraDeEnvio = (props) => {
 
     return(
         <div className="barraDeEnvio">
+            <input type="file" name="sendFile" id="sendFile" />
+            <label htmlFor="sendFile" className="sendFileButton" onClick={() => {console.log('Botão de imagem clicado!')}}><FontAwesomeIcon icon={faImage} /></label>
             <input type="text" ref={textoDigitado} placeholder={placeholder} onKeyDown={(evento) => {
                 if(evento.key === 'Enter') {
                     enviarMensagem();
                 };
             }} />
-            <button onClick={enviarMensagem} className={`botaoDeEnvio ${mensagemVazia}`}>{'>'}</button>
+            <button onClick={enviarMensagem} className={`botaoDeEnvio ${mensagemVazia}`}><FontAwesomeIcon icon={faPaperPlane} /></button>
         </div>
     );
 };
