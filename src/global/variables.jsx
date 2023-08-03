@@ -1,6 +1,6 @@
 class Variaveis{
     static idAtual = 'Contato0';
-    
+
     static verificarHorario = (horario) => {
         horario = horario.toString();
         horario = horario.split('');
@@ -17,7 +17,7 @@ class Variaveis{
         }; */
     };
     
-    static data = new Date;
+    static data = new Date();
     static horaAtual = `${this.verificarHorario(this.data.getHours())}:${this.verificarHorario(this.data.getMinutes())}`;
 
 };

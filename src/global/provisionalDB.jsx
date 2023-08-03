@@ -1,4 +1,3 @@
-import React from 'react';
 import Variaveis from "./variables";
 
 class dadosMensagem{
@@ -15,7 +14,7 @@ class dadosMensagem{
         }
     ]; /* =======================CÓDIGO ANTERIOR DE CAIXA DE MENSAGEM ÚNICA======================= */
 
-   static contatos = {
+   static DadosDeMensagens = {
     Contato0: [
     {
         textoDaMensagem: 'Bom dia! Tudo bem com você?',
@@ -60,6 +59,17 @@ class dadosMensagem{
     }
     */
    }
+
+   static contatos = [{
+    id: 0,
+    nome: 'Matheus Godoy',
+    mensagem: 'Sou uma mensagem de teste...',
+    /* foto: '***' */
+  }, {
+    id: 1,
+    nome: 'Alef Kwanzas',
+    mensagem: 'tomale'
+  }]
 };
 
 export default dadosMensagem;
