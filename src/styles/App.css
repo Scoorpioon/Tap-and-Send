@@ -9,7 +9,7 @@ body {
   height: 100vh;
   display: flex;
   flex-direction: column;
-  overflow-x: hidden;
+  overflow: hidden
 }
 
 main {
@@ -17,4 +17,10 @@ main {
   flex-direction: row;
   width: 100%;
   height: 100vh;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
