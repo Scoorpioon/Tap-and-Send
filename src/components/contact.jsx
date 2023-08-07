@@ -1,32 +1,35 @@
 import React, {useEffect, useContext} from 'react';
 import {DadosDeMensagens} from '../global/mainData';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faUser, faGear } from '@fortawesome/free-solid-svg-icons'
 import '../styles/contactBar.css';
+import '../styles/icons.css';
 
 const Contato = ({nome, texto, id}) => {
-    const {mensagensAPI} = useContext(DadosDeMensagens);
+    const {contatoAtual, mudarContato} = useContext(DadosDeMensagens);
 
     const selecionarContato = () => {
-        console.log('ID do contato selecionado: ' + id);
+        mudarContato(`Contato${id}`);
+    };
+
+    const editarContato = () => {
+        console.log('Edição requisitada');
     };
 
     useEffect(() => {
-        console.log('API direto dos contatos: ', mensagensAPI)
-    }, [mensagensAPI]);
+        console.log('Contato selecionado: ', contatoAtual);
+    }, [contatoAtual]);
 
     return(
         <div className={`_contato`} onClick={selecionarContato}>
             <div className="_info-contato">
-                <span className="foto-contato"><FontAwesomeIcon icon={faUser} /></span>
+                <span className="foto-contato center"><FontAwesomeIcon icon={faUser} /></span>
                 <div className="textos-contato">
                     <span className="nome-contato">{nome}</span>
                     <span className="mensagem-contato">{texto}</span>
                 </div>
             </div>
-            <div className="_editar-contato">
-                <span>E.</span>
-            </div>
+            <div className="_editar-contato center" onClick={editarContato}><FontAwesomeIcon icon={faGear} /></div>
         </div>
     );
 };
