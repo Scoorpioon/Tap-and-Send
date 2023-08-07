@@ -3,7 +3,7 @@ import { DadosDeMensagens } from '../../global/mainData'
 import {DadosDoUsuario} from '../../global/userData'
 import CaixaPerfil from './userSection';
 import Contato from '../contact';
-import Popup from '../generalPopup';
+import BarraDePesquisa from '../searchBar';
 import '../../styles/contactBar.css';
 
 const BarraContatos = () => {
@@ -14,8 +14,8 @@ const BarraContatos = () => {
 
     useEffect(() => {
       console.log('Contatos: ', contatos);
-      console.log(dadosUsuario)
-    })
+      console.log(dadosUsuario);
+    });
 
     const adicionarContato = () => {
       setarContato((contatosAnt) => [...contatosAnt, {
@@ -35,6 +35,7 @@ const BarraContatos = () => {
     return(
         <aside className="_contactBar">
             <CaixaPerfil nomeUsuario={dadosUsuario.nome} />
+            <BarraDePesquisa Placeholder="Pesquisar um contato..." tipo="Barra" />
             {contatos.map((contato) => {return <Contato key={contato.id} nome={contato.nome} texto={contato.mensagem} id={contato.id} style={{backgroundColor: 'red'}} />})}
             <div className="temporaryBottomContainer">
               <button onClick={popupContato}>Adicionar contato</button>

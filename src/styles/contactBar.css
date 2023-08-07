@@ -15,11 +15,9 @@
     position: relative;
     justify-content: center;
     align-items: center;
-    margin: 5px 0;
+    margin: 4px 0;
     height: 62px;
     padding: 2px;
-
-    border-top: 1px solid gray;
     border-bottom: 1px solid gray;
 
     cursor: pointer;

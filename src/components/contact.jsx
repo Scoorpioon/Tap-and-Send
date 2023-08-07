@@ -1,5 +1,7 @@
 import React, {useEffect, useContext} from 'react';
 import {DadosDeMensagens} from '../global/mainData';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUser } from '@fortawesome/free-solid-svg-icons';
 import '../styles/contactBar.css';
 
 const Contato = ({nome, texto, id}) => {
@@ -16,7 +18,7 @@ const Contato = ({nome, texto, id}) => {
     return(
         <div className={`_contato`} onClick={selecionarContato}>
             <div className="_info-contato">
-                <span className="foto-contato">Foto</span>
+                <span className="foto-contato"><FontAwesomeIcon icon={faUser} /></span>
                 <div className="textos-contato">
                     <span className="nome-contato">{nome}</span>
                     <span className="mensagem-contato">{texto}</span>

@@ -1,6 +1,5 @@
 import {useState, useContext} from 'react';
 import { DadosDoUsuario } from '../global/userData';
-import axios from 'axios';
 import '../styles/popups.css'
 
 const AdicionarContato = ({titulo, descricao, campos}) => {
@@ -9,7 +8,7 @@ const AdicionarContato = ({titulo, descricao, campos}) => {
 
     const enviarNovosDadosContato = (evento) => {
         evento.preventDefault();
-        axios.post('http://localhost:1337/test', {dadosContato}).catch((erro) => console.log(`Erro ao adicionar contato: ${erro}`))
+        /* axios.post('http://localhost:1337/test', {dadosContato}).catch((erro) => console.log(`Erro ao adicionar contato: ${erro}`)) */
     };
 
     return(
