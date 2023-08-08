@@ -61,3 +61,10 @@
 .ladoEsquerdo {
     justify-content: start;
 }
+
+/* Responsividade */
+@media (max-width: 632px) {
+    ._messageContainer {
+        width: 100%;
+    }
+}

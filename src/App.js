@@ -5,9 +5,11 @@ import CaixaMensagens from './components/page-elements/messageContainer';
 import BarraContatos from './components/page-elements/contactBar';
 import dadosMensagem from './global/provisionalDB';
 import Variaveis from './global/variables';
-import AdicionarContato from './components/generalPopup';
+import AdicionarContato from './components/addContact';
+import MenuMobile from './components/page-elements/mobileMenu';
+import LoginScreen from './components/login-section/loginScreen';
 import './styles/App.css';
-import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   const [contatos, setarContato] = useState(dadosMensagem.contatos); // Contatos
@@ -50,6 +52,7 @@ function App() {
   const [dadosUsuario, atualizarDadosUsuario] = useState({nome: "Gabriel", foto: undefined});
   const [dadosAleatorios, setarDados] = useState();
   const [situacaoPopup, ativarPopup] = useState();
+  const [pesquisa, atualizarPesquisa] = useState(null);
 
   useEffect(() => {
     fetch("http://localhost:1337/api")
@@ -60,16 +63,21 @@ function App() {
       .catch((error) => console.log(`Erro ao dar FETCH: ${error}`));
   }, []);
 
+  useEffect(() => {
+    console.log(pesquisa);
+  }, [])
+
   return (
     <main>
-      <DadosDeMensagens.Provider value={{mensagensAPI, enviarTextoAPI, contatos, setarContato, contatoAtual, mudarContato, dadosGerais, atualizacaoDeDados}}>
-        <DadosDoUsuario.Provider value={{dadosUsuario, situacaoPopup, ativarPopup}}>
-          <BarraContatos />
-          {situacaoPopup ? <AdicionarContato /> : null}
-        </DadosDoUsuario.Provider>
-        <CaixaMensagens />
-      </DadosDeMensagens.Provider>
-    </main>
+       <LoginScreen />
+       {/* <DadosDeMensagens.Provider value={{mensagensAPI, enviarTextoAPI, contatos, setarContato, contatoAtual, mudarContato, dadosGerais, atualizacaoDeDados}}>
+       <DadosDoUsuario.Provider value={{dadosUsuario, situacaoPopup, ativarPopup, pesquisa, atualizarPesquisa}}>
+       <BarraContatos />
+       {situacaoPopup ? <AdicionarContato /> : null}
+       </DadosDoUsuario.Provider>
+       <CaixaMensagens />
+       </DadosDeMensagens.Provider> */} 
+      </main>
   );
 };
 

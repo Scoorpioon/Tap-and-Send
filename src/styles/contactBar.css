@@ -1,6 +1,7 @@
 ._contactBar {
     text-align: center;
     width: 30%;
+    min-width: 292px;
     border-right: 1px solid rgb(189, 189, 189);
     padding: 0 10px;
 }
@@ -139,4 +140,21 @@
 .nomeUsuario {
     font-weight: 500;
     font-size: 1.1em;
+}
+
+/* Responsividade */
+@media (max-width: 1062px) {
+    .mensagem-contato {
+        font-size: 0.75em;
+    }
+}
+
+@media (max-width: 632px) {
+    ._contactBar {
+        width: 100%;
+    }
+
+    .temporaryBottomContainer span {
+        display: none;
+    }
 }

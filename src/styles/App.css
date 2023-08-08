@@ -25,3 +25,14 @@ main {
   justify-content: center;
   align-items: center;
 }
+
+/* Reponsividade */
+@media (max-width: 632px) {
+  body {
+    flex-direction: column
+  }
+
+  main {
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,23 @@
+._mobileNavigation {
+    display: flex;
+    background-color: blue;
+    width: 100%;
+    height: 48px;
+}
+
+._mobileNavigation ul {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+}
+
+._mobileNavigation ul button {
+    cursor: pointer;
+    width: 20px;
+    background: none;
+    border: none;
+    font-weight: bold;
+}
