@@ -4,8 +4,9 @@ This is a message app like Facebook or Whatsapp, which the user will be able to 
 
 ## Technologies used
 - ReactJS
-- .NET Framework
+- Express
 - Bootstrap
+- Redux
 
 ## Available Scripts
 
@@ -28,3 +29,5 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 - Bootstrap
 - Express
 - Fontawesome
+- Redux
+- React-redux
