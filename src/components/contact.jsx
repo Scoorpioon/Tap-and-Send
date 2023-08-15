@@ -1,24 +1,31 @@
 import React, {useEffect, useContext} from 'react';
-import {DadosDeMensagens} from '../global/mainData';
+import {useSelector, useDispatch} from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser, faGear } from '@fortawesome/free-solid-svg-icons'
 import '../styles/contactBar.css';
-import '../styles/icons.css';
 
 const Contato = ({nome, texto, id}) => {
-    const {contatoAtual, mudarContato} = useContext(DadosDeMensagens);
+    const {ContatoAtual, idAtual} = useSelector(rootReducer => rootReducer.contactReducer);
+    const dispatch = useDispatch();
 
     const selecionarContato = () => {
-        mudarContato(`Contato${id}`);
+        dispatch({
+            type: 'contato/alterar',
+            payload: `Contato${id}`,
+            Id: id,
+            infoContatoAtual: {
+                id: id,
+                nome: nome,
+                texto: texto
+            }
+        });
+
+        console.log('Contato alterado Redux: ', ContatoAtual);
     };
 
     const editarContato = () => {
         console.log('Edição requisitada');
     };
-
-    useEffect(() => {
-        console.log('Contato selecionado: ', contatoAtual);
-    }, [contatoAtual]);
 
     return(
         <div className={`_contato`} onClick={selecionarContato}>
