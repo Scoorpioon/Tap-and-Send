@@ -5,13 +5,21 @@
     align-items: center;
     position: absolute;
     margin: 0 34%;
-    margin-top: 8%;
     background-color: white;
     border-radius: 8px;
     height: 52%;
     width: 32%;
 
     z-index: 100;
+}
+
+#fakeBackground {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
 }
 
 .popup input {
@@ -41,9 +49,13 @@
 form {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 18px;
     align-items: center;
     width: 100%;
+}
+
+.popup label {
+    font-size: 1.2em;
 }
 
 .inputBox {
@@ -65,4 +77,21 @@ form {
     z-index: 5;
     background-color: black;
     opacity: 0.5;
+}
+
+.formularioInvalido label {
+    font-weight: bold;
+    color: red;
+}
+
+.formularioInvalido input[type="text"] {
+    border-color: red;
+}
+
+/* Responsividade */
+@media (max-width: 1367px) {
+    .popup {
+        width: 50%;
+        height: 70%;
+    }
 }
