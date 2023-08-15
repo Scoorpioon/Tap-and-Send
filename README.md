@@ -25,9 +25,9 @@ You may also see any lint errors in the console.
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-## Modules used
+## Packages used
 - Bootstrap
 - Express
 - Fontawesome
-- Redux
-- React-redux
+`npm install redux`
+`npm install react-redux`
