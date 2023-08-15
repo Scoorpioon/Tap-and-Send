@@ -1,8 +1,11 @@
 ._contactBar {
+    position: static;
     text-align: center;
     width: 30%;
+    height: 100%;
     min-width: 292px;
     border-right: 1px solid rgb(189, 189, 189);
+    overflow-y: scroll;
 }
 
 ._contactBar h1 {
@@ -21,7 +24,7 @@
     align-items: center;
     margin: 4px 0;
     height: 62px;
-    padding: 2px;
+    padding: 2px 12px;
     border-bottom: 1px solid gray;
 
     cursor: pointer;
@@ -99,6 +102,7 @@
     background: none;
     color: rgb(0, 0, 255);
     border: 2px solid rgb(132, 132, 255);
+    margin-top: 8px;
 }
 
 .temporaryBottomContainer button:hover {
@@ -148,6 +152,25 @@
     font-weight: 500;
     font-size: 1.1em;
 }
+
+.notFound {
+    width: 100%;
+    font-size: 1.1em;
+    opacity: 0.8;
+    margin: 22px 0 16px 0;
+}
+
+.version {
+    position: absolute;
+    left: 12px;
+    bottom: 12px;
+    font-size: 0.6em;
+    color: gray;
+    text-decoration: underline;
+    background-color: rgb(212, 212, 212);
+    padding: 0 4px;
+}
+
 
 /* Responsividade */
 @media (max-width: 1062px) {
