@@ -29,5 +29,5 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 - Bootstrap
 - Express
 - Fontawesome
-- Redux
-- React-redux
+`npm install redux`
+`npm install react-redux`
