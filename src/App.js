@@ -1,20 +1,21 @@
 import {useState, useEffect} from 'react';
-import {DadosDeMensagens} from './global/mainData';
-import {DadosDoUsuario} from './global/userData';
-import CaixaMensagens from './components/page-elements/messageContainer';
-import BarraContatos from './components/page-elements/contactBar';
-import dadosMensagem from './global/provisionalDB';
-import Variaveis from './global/variables';
+import {DadosDoUsuario} from './global/TemporaryClasses/userData';
+import {useSelector} from 'react-redux'
+import {DadosDeMensagens} from './global/TemporaryClasses/mainData';
+import CaixaMensagens from './components/page-elements/Messages/messageContainer';
+import BarraContatos from './components/page-elements/Contact/contactBar';
+import dadosMensagem from './global/TemporaryClasses/provisionalDB';
+import Variaveis from './global/TemporaryClasses/variables';
 import AdicionarContato from './components/addContact';
-import MenuMobile from './components/page-elements/mobileMenu';
+import MenuMobile from './components/page-elements/Contact/mobileMenu';
 import LoginScreen from './components/login-section/loginScreen';
 import './styles/App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
-  const [contatos, setarContato] = useState(dadosMensagem.contatos); // Contatos
-  const [contatoAtual, mudarContato] = useState('Contato0') // Contato atual
-  const [mensagensAPI, enviarTextoAPI] = useState(dadosMensagem.DadosDeMensagens[contatoAtual]); // Mensagens atuais
+  // Variáveis Redux
+  const {ContatoAtual} = useSelector(rootReducer => rootReducer.contactReducer);
+  const [mensagensAPI, enviarTextoAPI] = useState(dadosMensagem.DadosDeMensagens[ContatoAtual]); // Mensagens atuais
   const [dadosGerais, atualizacaoDeDados] = useState({Contato0: [
     {
         textoDaMensagem: 'Bom dia! Tudo bem com você?',
@@ -48,11 +49,9 @@ function App() {
         horario: Variaveis.horaAtual
     }]
    }
-);
-  const [dadosUsuario, atualizarDadosUsuario] = useState({nome: "Gabriel", foto: undefined});
-  const [dadosAleatorios, setarDados] = useState();
-  const [situacaoPopup, ativarPopup] = useState();
-  const [pesquisa, atualizarPesquisa] = useState(null);
+); // Redux (quase implantando completamente)
+  const [dadosAleatorios, setarDados] = useState(); // Redux
+  const [situacaoPopup, ativarPopup] = useState(); // Mantém
 
   useEffect(() => {
     fetch("http://localhost:1337/api")
@@ -63,21 +62,16 @@ function App() {
       .catch((error) => console.log(`Erro ao dar FETCH: ${error}`));
   }, []);
 
-  useEffect(() => {
-    console.log(pesquisa);
-  }, [])
-
   return (
     <main>
-       <LoginScreen />
-       {/* <DadosDeMensagens.Provider value={{mensagensAPI, enviarTextoAPI, contatos, setarContato, contatoAtual, mudarContato, dadosGerais, atualizacaoDeDados}}>
-       <DadosDoUsuario.Provider value={{dadosUsuario, situacaoPopup, ativarPopup, pesquisa, atualizarPesquisa}}>
-       <BarraContatos />
-       {situacaoPopup ? <AdicionarContato /> : null}
-       </DadosDoUsuario.Provider>
-       <CaixaMensagens />
-       </DadosDeMensagens.Provider> */} 
-      </main>
+       <DadosDeMensagens.Provider value={{mensagensAPI, enviarTextoAPI, dadosGerais, atualizacaoDeDados}}>
+        <DadosDoUsuario.Provider value={{situacaoPopup, ativarPopup}}>
+          <BarraContatos />
+          {situacaoPopup ? <div id="fakeBackground"><AdicionarContato /></div> : null}
+        </DadosDoUsuario.Provider>
+        <CaixaMensagens />
+       </DadosDeMensagens.Provider> 
+    </main>
   );
 };
 
