@@ -3,11 +3,11 @@ import {DadosDoUsuario} from './global/TemporaryClasses/userData';
 import {useSelector} from 'react-redux'
 import {DadosDeMensagens} from './global/TemporaryClasses/mainData';
 import CaixaMensagens from './components/page-elements/Messages/messageContainer';
-import BarraContatos from './components/page-elements/Contact/contactBar';
+import BarraContatos from './components/page-elements/Contacts/contactBar';
 import dadosMensagem from './global/TemporaryClasses/provisionalDB';
 import Variaveis from './global/TemporaryClasses/variables';
 import AdicionarContato from './components/addContact';
-import MenuMobile from './components/page-elements/Contact/mobileMenu';
+import MenuMobile from './components/page-elements/Contacts/mobileMenu';
 import LoginScreen from './components/login-section/loginScreen';
 import './styles/App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
