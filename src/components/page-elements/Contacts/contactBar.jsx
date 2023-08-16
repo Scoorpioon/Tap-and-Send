@@ -13,6 +13,7 @@ const BarraContatos = () => {
     const {ContatoAtual, ListaDeContatos} = useSelector(rootReducer => rootReducer.contactReducer);
     const {DadosDasBarras} = useSelector(rootReducer => rootReducer.searchReducer);
     const dispatch = useDispatch();
+    // ==================
 
     const {situacaoPopup, ativarPopup} = useContext(DadosDoUsuario);
     const [listaFiltrada, filtrarLista] = useState(ListaDeContatos);
@@ -73,18 +74,21 @@ const BarraContatos = () => {
 
     return(
         <aside className="_contactBar">
-           <CaixaPerfil nomeUsuario={usuarioAtual.nome} />
-            {/* <MenuMobile /> */}
+            <header>
+              <CaixaPerfil nomeUsuario={usuarioAtual.nome} />
+              <BarraDePesquisa identificacao="pesquisaDeContato" Placeholder="Pesquisar por contatos..." tipo="Barra" />
+              {/* <MenuMobile /> */}
+            </header>
 
-            <BarraDePesquisa identificacao="pesquisaDeContato" Placeholder="Pesquisar por contatos..." tipo="Barra" />
-            {listaFiltrada.map((contato) => {return <Contato key={contato.id} nome={contato.nome} texto={contato.mensagem} id={contato.id} style={{backgroundColor: 'red'}} />})}
-            {listaFiltrada.length === 0 ? <p className="notFound">Nenhum contato foi encontrado...!</p> : null}
-
-            <div className="temporaryBottomContainer">
-              <button onClick={popupContato}>Adicionar contato</button>
-              <button onClick={adicionarContato} style={{margin: 0}}>Adicionar contato de teste</button>
-              <span className="trademark">&copy; Desenvolvido por Gabriel A.</span>
-              <span className="version">Ver. 0.0.2 - 2023</span>
+            <div className="conteudoPrincipalContato">
+              {listaFiltrada.map((contato) => {return <Contato key={contato.id} nome={contato.nome} texto={contato.mensagem} id={contato.id} style={{backgroundColor: 'red'}} />})}
+              {listaFiltrada.length === 0 ? <p className="notFound">Nenhum contato foi encontrado...!</p> : null}
+              <div className="temporaryBottomContainer">
+                <button onClick={popupContato}>Adicionar contato</button>
+                <button onClick={adicionarContato} style={{margin: 0}}>Adicionar contato de teste</button>
+                <span className="trademark">&copy; Desenvolvido por Gabriel A.</span>
+                <span className="version">Ver. 0.0.2 - 2023</span>
+              </div>
             </div>
         </aside>
     );
