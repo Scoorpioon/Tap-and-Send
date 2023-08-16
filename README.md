@@ -1,6 +1,6 @@
 # Tap and send
 
-This is a message app like Facebook or Whatsapp, which the user will be able to login (still in progress), send, receive, edit or delete messages and add a contact.
+This is a message app like Facebook or Whatsapp, which the user will be able to login (still in progress, but you can access the page by changing the route to /login), send, receive, edit or delete messages and add a contact.
 
 ## Technologies used
 - ReactJS
