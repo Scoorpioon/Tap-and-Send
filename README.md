@@ -5,8 +5,7 @@ This is a message app like Facebook or Whatsapp, which the user will be able to 
 ## Technologies used
 - ReactJS
 - Express
-- Bootstrap
-- Redux
+- Pure CSS
 
 ## Available Scripts
 
