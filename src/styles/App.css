@@ -26,6 +26,16 @@ main {
   align-items: center;
 }
 
+::-webkit-scrollbar{
+  width: 4px;
+}
+
+
+::-webkit-scrollbar-thumb{  
+  width: 4px;
+  background-color: rgb(76, 73, 255);
+}
+
 /* Reponsividade */
 @media (max-width: 632px) {
   body {
