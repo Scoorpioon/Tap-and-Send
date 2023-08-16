@@ -10,7 +10,7 @@
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
     <title>Tap and Send!</title>
     <style>
-      noscript::before {
+      noscript::before, noscript::after {
         content: '';
         position: absolute;
         width: 108%;
@@ -21,13 +21,7 @@
       }
 
       noscript::after {
-        content: '';
-        position: absolute;
-        width: 108%;
-        height: 2px;
         top: 56px;
-        right: -28px;
-        background-color: rgb(170, 170, 170);
       }
     </style>
   </head>
