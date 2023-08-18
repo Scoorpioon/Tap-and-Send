@@ -46,3 +46,7 @@ npm install --save @fortawesome/react-fontawesome
 npm install --save redux
 npm install --save react-redux
 ```
+
+> [!NOTE]
+> Highlights information that users should take into account, even when skimming.
+> Testeee
