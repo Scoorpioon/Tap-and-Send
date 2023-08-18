@@ -29,11 +29,15 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 - Bootstrap
 - Express
 
-`npm install --save @fortawesome/fontawesome-free`
-`npm install --save @fortawesome/fontawesome-svg-core`
-`npm install --save @fortawesome/free-solid-svg-icons`
-`npm install --save @fortawesome/react-fontawesome`
 
+```
+npm install --save @fortawesome/fontawesome-free
+npm install --save @fortawesome/fontawesome-svg-core
+npm install --save @fortawesome/free-solid-svg-icons
+npm install --save @fortawesome/react-fontawesome
+```
 
-`npm install redux`
-`npm install react-redux`
+```
+npm install redux
+npm install react-redux
+```
