@@ -26,9 +26,14 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 
 ## Modules used
 <p align="center">These are the modules used for the app development. You don't necessarily have to install the packages, the package.json already do it for you. But it's good to make it explicit!</p>
-- Bootstrap
-- Express
 
+```
+npm install react-bootstrap bootstrap
+```
+
+```
+$ npm install express --save
+```
 
 ```
 npm install --save @fortawesome/fontawesome-free
@@ -38,6 +43,6 @@ npm install --save @fortawesome/react-fontawesome
 ```
 
 ```
-npm install redux
-npm install react-redux
+npm install --save redux
+npm install --save react-redux
 ```
