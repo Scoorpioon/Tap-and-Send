@@ -48,5 +48,4 @@ npm install --save react-redux
 ```
 
 > [!NOTE]
-> Highlights information that users should take into account, even when skimming.
-> Testeee
+> All the messages will be save in a database, like Discord functionability. 
