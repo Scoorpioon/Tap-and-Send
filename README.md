@@ -2,12 +2,12 @@
 
 This is a message app like Facebook or Whatsapp, which the user will be able to login (still in progress, but you can access the page by changing the route to /login), send, receive, edit or delete messages and add a contact.
 
-## Technologies used
+## 💻 Technologies used
 - ReactJS
 - Express
 - Pure CSS
 
-## Available Scripts
+## ⚙️ Available Scripts
 
 In the project directory, you can run:
 
@@ -24,7 +24,7 @@ You may also see any lint errors in the console.
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-## Modules used
+## 📁 Modules used
 <p align="center">These are the modules used for the app development. You don't necessarily have to install the packages, the package.json already do it for you. But it's good to make it explicit!</p>
 
 ```
