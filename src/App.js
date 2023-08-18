@@ -16,40 +16,6 @@ function App() {
   // Variáveis Redux
   const {ContatoAtual} = useSelector(rootReducer => rootReducer.contactReducer);
   const [mensagensAPI, enviarTextoAPI] = useState(dadosMensagem.DadosDeMensagens[ContatoAtual]); // Mensagens atuais
-  const [dadosGerais, atualizacaoDeDados] = useState({Contato0: [
-    {
-        textoDaMensagem: 'Bom dia! Tudo bem com você?',
-        autor: 'receiver',
-        horario: Variaveis.horaAtual
-    },
-    {
-        textoDaMensagem: 'Estamos conversando através de uma aplicação web em React desenvolvida por Gabriel Alexandre!',
-        autor: 'receiver',
-        horario: Variaveis.horaAtual
-    },
-    {
-        textoDaMensagem: 'Que incrível!',
-        autor: 'author',
-        horario: Variaveis.horaAtual
-    }
-],
-    Contato1: [{
-        textoDaMensagem: 'Este é um exemplo de alteração de conversas.',
-        autor: 'receiver',
-        horario: Variaveis.horaAtual
-    },
-    {
-        textoDaMensagem: 'Você pode criar um novo contato e uma nova caixa de conversas será criada!',
-        autor: 'receiver',
-        horario: Variaveis.horaAtual
-    },
-    {
-        textoDaMensagem: 'Entendi...! Obrigado pela informação, meu amigo.',
-        autor: 'author',
-        horario: Variaveis.horaAtual
-    }]
-   }
-); // Redux (quase implantando completamente)
   const [dadosAleatorios, setarDados] = useState(); // Redux
   const [situacaoPopup, ativarPopup] = useState(); // Mantém
 
@@ -64,7 +30,7 @@ function App() {
 
   return (
     <main>
-       <DadosDeMensagens.Provider value={{mensagensAPI, enviarTextoAPI, dadosGerais, atualizacaoDeDados}}>
+       <DadosDeMensagens.Provider value={{mensagensAPI, enviarTextoAPI}}>
         <DadosDoUsuario.Provider value={{situacaoPopup, ativarPopup}}>
           <BarraContatos />
           {situacaoPopup ? <div id="fakeBackground"><AdicionarContato /></div> : null}
