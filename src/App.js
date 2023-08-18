@@ -15,7 +15,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 function App() {
   // Variáveis Redux
   const {ContatoAtual} = useSelector(rootReducer => rootReducer.contactReducer);
-  const [mensagensAPI, enviarTextoAPI] = useState(dadosMensagem.DadosDeMensagens[ContatoAtual]); // Mensagens atuais
   const [dadosAleatorios, setarDados] = useState(); // Redux
   const [situacaoPopup, ativarPopup] = useState(); // Mantém
 
@@ -30,13 +29,11 @@ function App() {
 
   return (
     <main>
-       <DadosDeMensagens.Provider value={{mensagensAPI, enviarTextoAPI}}>
         <DadosDoUsuario.Provider value={{situacaoPopup, ativarPopup}}>
           <BarraContatos />
           {situacaoPopup ? <div id="fakeBackground"><AdicionarContato /></div> : null}
         </DadosDoUsuario.Provider>
         <CaixaMensagens />
-       </DadosDeMensagens.Provider> 
     </main>
   );
 };
