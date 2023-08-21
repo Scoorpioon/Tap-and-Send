@@ -63,6 +63,16 @@
     justify-content: start;
 }
 
+.invalid {
+    display: none;
+}
+
+.textoCaixaVazia {
+    opacity: 0.8;
+    font-size: 1.1em;
+}
+
+
 /* Responsividade */
 @media (max-width: 632px) {
     ._messageContainer {
