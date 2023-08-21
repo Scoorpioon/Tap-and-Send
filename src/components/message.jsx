@@ -1,4 +1,4 @@
-import {useEffect, useState} from 'react';
+import {useState, useEffect} from 'react';
 import '../styles/messageContainer.css';
 
 const estilizarHora = {
@@ -9,17 +9,19 @@ const estilizarHora = {
     top: '5px'
 }
 
-const Mensagem = ({texto, tipo, hora}) => {
-    /* const [horaAtual, mudarHora] = useState();
+// {texto, tipo, hora}
+const Mensagem = (props) => {
+    const [mensagemInvalida, alterarValidez] = useState(false);
 
-    useEffect(() => {
-        mudarHora(new Date());
-        console.log(hora);
-    }); */
+    useEffect(() => {if(!props.tipo) {
+        alterarValidez(true);
+    } else {
+        alterarValidez(false);
+    }});
 
     return(
-        <div className={`linhaMensagem ${tipo === 'author' ? 'ladoDireito' : 'ladoEsquerdo'}`}>
-                <span className={`message ${tipo}`}>{texto} <span style={estilizarHora}>{hora}</span></span>
+        <div style={mensagemInvalida ? {display: 'none'} : null} className={`linhaMensagem ${props.tipo === 'author' ? 'ladoDireito' : 'ladoEsquerdo'} ultimaMensagem`}>
+                <span className={`message ${props.tipo}`}>{props.texto} <span style={estilizarHora}>{props.hora}</span></span>
         </div>
     );
 };
