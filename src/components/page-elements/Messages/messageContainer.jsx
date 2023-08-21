@@ -10,6 +10,7 @@ const CaixaMensagens = () => {
     const {ListaDeContatos, idAtual} = useSelector(rootReducer => rootReducer.contactReducer);
     const [infoContatoAtual, atualizarInfoContato] = useState(ListaDeContatos[idAtual]);
     const [mensagem, setarMensagem] = useState(); // Mensagem a ser enviada para a caixa de mensagens
+    const [estadoCaixa, alterarEstadoCaixa] = useState(undefined); // Sinaliza quando a caixa de mensagens de certo contato está vazia ou não
     
     const dispatch = useDispatch();
 
@@ -19,6 +20,7 @@ const CaixaMensagens = () => {
 
     useEffect(() => {
         atualizarInfoContato(ListaDeContatos[idAtual]);
+        console.log(ListaDeContatos[idAtual].mensagens);
     }, [idAtual]);
 
     useEffect(() => {
@@ -33,11 +35,20 @@ const CaixaMensagens = () => {
         });
     }, [mensagem]); // useEffect necessário, pois sem ele a mensagem não é atualizada instantaneamente
 
+    useEffect(() => {
+        if(ListaDeContatos[idAtual].mensagens.length <= 1 && !ListaDeContatos[idAtual].mensagens[0].textoDaMensagem) {
+            alterarEstadoCaixa(false);
+        } else {
+            alterarEstadoCaixa(true);
+        };
+    });
+
     return(
         <>
             <div className="_messageContainer">
                 <CabecalhoMensagem nomeContato={ListaDeContatos[idAtual].nome} />
-                <ul className="messages">
+                <ul className={`messages ${!estadoCaixa? 'caixaFlex' : null}`}>
+                    {!estadoCaixa ? <span className="textoCaixaVazia">Que tal ser o primeiro a enviar uma mensagem?</span> : null}
                     {infoContatoAtual.mensagens.map((msg) => {return <Mensagem key={Math.random()} texto={msg.textoDaMensagem} tipo={msg.autor} hora={msg.horario} />})}
                 </ul>
                 <BarraDeEnvio onClick={receberMensagem} />
