@@ -24,7 +24,7 @@ const BarraDeEnvio = (props) => {
 
             switch(texto) {
                 case '/lorem':
-                    setarMensagem('Lorem Ipsum Dolor Sit Amet. '.repeat(7));
+                    setarMensagem('Lorem Ipsum Dolor Sit Amet. '.repeat(Math.round(Math.random() * 12)));
                     break;
                 case '/sizecheck':
                     console.log('Checagem de tamanho dos elementos requisitada.');
