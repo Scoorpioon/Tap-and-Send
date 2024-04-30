@@ -63,8 +63,13 @@ const contactReducer = (state = contatoInicial, action) => {
             return {...state, ListaDeContatos: action.novoContato};
 
         case 'contato/adicionarTeste':
+<<<<<<< HEAD
             console.log(action.novoContato)
             return {...state, ListaDeContatos: action.novoContato};
+=======
+            return {...state, ListaDeContatos: action.novoContato};
+            break;
+>>>>>>> db1c0af95a51d085d89a0c60c67ad022737ac723
 
         case 'contato/enviarmensagem':
           if(!action.mensagensAtualizadas.textoDaMensagem) {
