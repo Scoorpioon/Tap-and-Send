@@ -1,7 +1,8 @@
-import React, {useEffect, useContext} from 'react';
+import {useEffect, useContext} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faUser, faGear } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUser, faGear } from '@fortawesome/free-solid-svg-icons';
+import GPopup from './page-elements/generalPopup';
 import '../styles/contactBar.css';
 
 const Contato = ({nome, texto, id}) => {
@@ -19,8 +20,6 @@ const Contato = ({nome, texto, id}) => {
                 texto: texto
             }
         });
-
-        console.log('Contato alterado Redux: ', ContatoAtual);
     };
 
     const editarContato = () => {
@@ -36,7 +35,9 @@ const Contato = ({nome, texto, id}) => {
                     <span className="mensagem-contato">{texto}</span>
                 </div>
             </div>
-            <div className="_editar-contato center" onClick={editarContato}><FontAwesomeIcon icon={faGear} /></div>
+            <div className="_editar-contato center" onClick={editarContato}>
+                <FontAwesomeIcon icon={faGear} />
+            </div>
         </div>
     );
 };

@@ -13,7 +13,7 @@
     z-index: 100;
 }
 
-#fakeBackground {
+.fakeBackground {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -88,9 +88,48 @@ form {
     border-color: red;
 }
 
+.generalPopup {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    background-color: white;
+    border-radius: 12px;
+    color: black;
+    width: 60%;
+    height: 32%;
+    z-index: 10;
+    padding: 8px;
+}
+
+.generalPopup input {
+    width: 62%;
+    border-radius: 50px;
+    border: 1px solid gray;
+    padding: 0 12px;
+}
+
+.generalPopup input[type="submit"] {
+    width: 120px;
+    background-color: blue;
+    color: white;
+    border: none;
+}
+
+.generalPopup h1 {
+    text-align: left;
+}
+
+.titleBox {
+    width: 100%;
+    border-bottom: 1px solid gray;
+    margin-bottom: 4px;
+}
+
 /* Responsividade */
 @media (max-width: 1367px) {
-    .popup {
+    .popup, .generalPopup {
         width: 50%;
         height: 70%;
     }

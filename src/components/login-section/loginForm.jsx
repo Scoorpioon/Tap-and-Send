@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
 
-const LoginForm = () => {
+const LoginForm = (path) => {
     const [senhaVisivel, alterarVisibilidade] = useState(false);
 
     const visibilidadeSenha = () => {
@@ -10,7 +10,7 @@ const LoginForm = () => {
     }
 
     return(
-        <form method="POST">
+        <form action="/login/try" method="POST">
                     <div className="inputs">
                         {/* <label htmlFor="username">Nome de usuário:</label> */}
                         <div className="inputBox">

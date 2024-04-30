@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Backend testing</title>
+    <style>
+        form {
+            display: flex;
+            flex-direction: column;
+            width: 200px;
+            gap: 5px;
+        }
+
+        input[type="submit"] {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <form action="/login/try" method="post">
+        <input type="text" id="campo1" name="campo1">
+        <input type="text" id="campo2" name="campo2">
+
+        <input type="submit" value="Enviar dados">
+    </form>
+</body>
+</html>

@@ -1,0 +1,18 @@
+{
+    "ContasDeTeste": {
+        "dados": [
+            {
+                "id": 0,
+                "nome": "Daniel",
+                "senha": "1337lol",
+                "admin": true
+            },
+            {
+                "id": 1,
+                "nome": "Rafael",
+                "senha": "lol1337",
+                "admin": true
+            }
+        ]
+    }
+}

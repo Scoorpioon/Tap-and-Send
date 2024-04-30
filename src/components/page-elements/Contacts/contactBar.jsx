@@ -37,7 +37,7 @@ const BarraContatos = () => {
       let palavraFinal = palavraNova.toString();
       
       return palavraFinal.replaceAll(",", "");
-    }; // Essa function faz com que todas as letras de inicio de palavras em uma frase se tornem maiúscula. Ela serve para nomes.
+    }; // Essa function faz com que todas as letras de inicio de palavras em uma frase se tornem maiúscula. Ela serve para nomes próprios.
 
     useEffect(() => {
       try {
@@ -62,10 +62,18 @@ const BarraContatos = () => {
         type: 'contato/adicionarTeste',
         novoContato: [...ListaDeContatos, {
           id: ListaDeContatos.length++,
+          numero: 13371337,
           nome: nomes[numeroAleatorio],
-          mensagem: 'Be water, my friend.'
+          mensagemAtual: 'Be water, my friend.',
+          mensagens: [{
+            textoDaMensagem: null,
+            autor: null,
+            horario: null
+          }]
         }]
       });
+
+      filtrarLista(ListaDeContatos)
     };
 
     const popupContato = () => {
@@ -81,13 +89,13 @@ const BarraContatos = () => {
             </header>
 
             <div className="conteudoPrincipalContato">
-              {listaFiltrada.map((contato) => {return <Contato key={contato.id} nome={contato.nome} texto={contato.mensagem} id={contato.id} style={{backgroundColor: 'red'}} />})}
+              {listaFiltrada.map((contato) => {return <Contato key={contato.id} nome={contato.nome} texto={contato.mensagemAtual} id={contato.id} style={{backgroundColor: 'red'}} />})}
               {listaFiltrada.length === 0 ? <p className="notFound">Nenhum contato foi encontrado...!</p> : null}
               <div className="temporaryBottomContainer">
                 <button onClick={popupContato}>Adicionar contato</button>
                 <button onClick={adicionarContato} style={{margin: 0}}>Adicionar contato de teste</button>
                 <span className="trademark">&copy; Desenvolvido por Gabriel A.</span>
-                <span className="version">Ver. 0.0.2 - 2023</span>
+                <span className="version">Ver. 0.0.3 - 2023</span>
               </div>
             </div>
         </aside>

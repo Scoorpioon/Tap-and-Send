@@ -5,6 +5,7 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import Store from './global/redux/tests';
 import LoginScreen from './components/login-section/loginScreen';
+import LoginConnection from './components/login-section/loginConnection';
 import './styles/index.css';
 //import reportWebVitals from '../maybe later/reportWebVitals';
 
@@ -15,6 +16,10 @@ const Teia = createBrowserRouter([{
 {
   path: '/login',
   element: <LoginScreen />
+},
+{
+  path: '/login/try',
+  element: <LoginConnection />
 }]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

@@ -32,7 +32,7 @@ npm install react-bootstrap bootstrap
 ```
 
 ```
-$ npm install express --save
+npm install express --save
 ```
 
 ```

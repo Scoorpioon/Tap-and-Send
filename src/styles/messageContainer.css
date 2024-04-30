@@ -4,7 +4,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100%;
+    height: 88%;
     overflow-x: hidden;
     width: 70%;
     padding-top: 50px;
@@ -61,6 +61,15 @@
 
 .ladoEsquerdo {
     justify-content: start;
+}
+
+.invalid {
+    display: none;
+}
+
+.textoCaixaVazia {
+    opacity: 0.8;
+    font-size: 1.1em;
 }
 
 /* Responsividade */

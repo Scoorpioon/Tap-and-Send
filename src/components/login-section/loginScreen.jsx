@@ -6,12 +6,14 @@ import '../../styles/loginScreen.css';
 
 const LoginScreen = () => {
     return(
-        <section className="_loginScreen">
-            <div id="formCard">
-                <h1>Tap and Send</h1>
-                <LoginForm />
-            </div>
-        </section>
+        <main>
+            <section className="_loginScreen">
+                <div id="formCard">
+                    <h1>Tap and Send</h1>
+                    <LoginForm />
+                </div>
+            </section>
+        </main>
     );
 };
 

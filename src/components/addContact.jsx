@@ -35,7 +35,12 @@ const AdicionarContato = ({titulo, descricao, campos}) => {
                     id: ListaDeContatos.length++,
                     nome: campoNome.current.value,
                     numero: campoNumero.current.value,
-                    mensagem: undefined
+                    mensagemAtual: undefined,
+                    mensagens: [{
+                        textoDaMensagem: null,
+                        autor: null,
+                        horario: null
+                      }]
                 }]
 
             });

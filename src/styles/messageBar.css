@@ -67,6 +67,32 @@ input[type="file"] {
     border-color: rgb(75, 75, 255);
 }
 
+._listaDeComandos {
+  width: 92%;
+  position: absolute;
+  bottom: 75px;
+  background-color: white;
+  color: black;
+  border-radius: 8px;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+._listaDeComandos li {
+  border-bottom: 1px solid gray;
+  padding: 6px;
+}
+
+._listaDeComandos li:hover {
+  background-color: rgb(220, 220, 255);
+}
+  
+._listaDeComandos h3 {
+  font-size: 17px;
+  margin: 0;
+}
+
 .animacaoErro {
     animation: erroEnvio .5s linear;
 }
